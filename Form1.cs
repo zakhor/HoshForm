@@ -81,7 +81,7 @@ namespace HoshForm
                 "UrlBoard:\t" + UrlBoard + "\r\n" +
                 "Target:\t\t" + Target + "\r\n" +
                 "TimeInterval:\t" + TimeInterval + "\r\n" +
-                "HN:\t\t" + Name + "\r\n" +
+                "HN:\t\t" + HN + "\r\n" +
                 "Message:\t" + Message + "\r\n"
                 );
 
