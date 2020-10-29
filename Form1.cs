@@ -62,11 +62,15 @@ namespace HoshForm
             //各変数を取得
             string UrlBoard = tbUrlBoard.Text;
             string Target = tbTarget.Text;
-            string TimeInterval = tbTimeInterval.Text;
+            long TimeInterval = (long)numTimeInterval.Value;
             string HN = tbHN.Text;
             string Message = tbMessage.Text;
 
+            //フォームを閉じる
             this.Close();
+
+            //本文を切り分ける
+            string[] Messages = Message.Split("\n");
 
             //正規表現を用意
             string Pattern1 = "https://(?<Server>.+?).5ch.net/(?<Board>.+?)/";
@@ -80,10 +84,13 @@ namespace HoshForm
                 (
                 "UrlBoard:\t" + UrlBoard + "\r\n" +
                 "Target:\t\t" + Target + "\r\n" +
-                "TimeInterval:\t" + TimeInterval + "\r\n" +
-                "HN:\t\t" + HN + "\r\n" +
-                "Message:\t" + Message + "\r\n"
+                "TimeInterval:\t" + TimeInterval.ToString() + "\r\n" +
+                "HN:\t\t" + HN + "\r\n"
                 );
+            foreach (string msg in Messages) 
+            {
+                Console.WriteLine("Message:\t" + msg);
+            }
 
             //エンコードの指定
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -95,7 +102,7 @@ namespace HoshForm
             string UrlThreadBase = "https://" + match.Groups["Server"] + ".5ch.net/test/read.cgi/" + match.Groups["Board"] + "/";
 
             //初期待ち時間を投稿間隔時間に設定
-            long TimeWait = long.Parse(TimeInterval);
+            long TimeWait = TimeInterval;
 
             //ずっと繰り返す
             while (true)
@@ -145,22 +152,23 @@ namespace HoshForm
                             "TimeDiff:\t" + TimeDiff + "\r\n"
                            );
                         //もし最終書込時刻から投稿間隔以上の時間が経過していれば書き込む
-                        if (TimeDiff >= long.Parse(TimeInterval))
+                        if (TimeDiff >= TimeInterval)
                         {
                             Console.WriteLine("POST");
-                            TimeWait = long.Parse(TimeInterval);
+                            TimeWait = TimeInterval;
                             //ChromeDriver起動
                             options.AddArgument("--headless");
                             options.AddArgument("--incognito");
                             IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), options);
-                            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
                             driver.Url = UrlThread;
                             IWebElement Element = driver.FindElement(By.Name("FROM"));
                             Element.SendKeys(HN);
                             Element = driver.FindElement(By.Name("mail"));
                             Element.SendKeys(TimeInterval.ToString() + "秒");
+                            Random rnd = new System.Random();
                             Element = driver.FindElement(By.Name("MESSAGE"));
-                            Element.SendKeys(Message);
+                            Element.SendKeys(Messages[rnd.Next(0, Messages.Length)]);
                             Element = driver.FindElement(By.Name("submit"));
                             Element.Click();
                             //Cookie切れ対応
@@ -179,7 +187,7 @@ namespace HoshForm
                         else
                         {
                             Console.WriteLine("NOT POST");
-                            TimeWait = long.Parse(TimeInterval) - TimeDiff;
+                            TimeWait = TimeInterval - TimeDiff;
                         }
                         //待機時間を出力
                         Console.Write

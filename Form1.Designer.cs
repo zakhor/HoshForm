@@ -38,9 +38,10 @@ namespace HoshForm
             this.tbUrlBoard = new System.Windows.Forms.TextBox();
             this.tbTarget = new System.Windows.Forms.TextBox();
             this.tbHN = new System.Windows.Forms.TextBox();
-            this.tbTimeInterval = new System.Windows.Forms.TextBox();
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
+            this.numTimeInterval = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimeInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUrlBoard
@@ -84,9 +85,10 @@ namespace HoshForm
             this.lblMessage.AutoSize = true;
             this.lblMessage.Location = new System.Drawing.Point(50, 210);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(31, 15);
+            this.lblMessage.Size = new System.Drawing.Size(89, 30);
             this.lblMessage.TabIndex = 4;
-            this.lblMessage.Text = "本文";
+            this.lblMessage.Text = "本文\r\n改行で複数登録";
+            
             // 
             // tbUrlBoard
             // 
@@ -112,25 +114,18 @@ namespace HoshForm
             this.tbHN.TabIndex = 8;
             this.tbHN.Text = ConfigurationManager.AppSettings["DefaultHN"];
             // 
-            // tbTimeInterval
-            // 
-            this.tbTimeInterval.Location = new System.Drawing.Point(186, 127);
-            this.tbTimeInterval.Name = "tbTimeInterval";
-            this.tbTimeInterval.Size = new System.Drawing.Size(370, 23);
-            this.tbTimeInterval.TabIndex = 7;
-            this.tbTimeInterval.Text = ConfigurationManager.AppSettings["DefaultTimeInterval"];
-            // 
             // tbMessage
             // 
             this.tbMessage.Location = new System.Drawing.Point(186, 207);
+            this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(370, 23);
+            this.tbMessage.Size = new System.Drawing.Size(370, 300);
             this.tbMessage.TabIndex = 9;
             this.tbMessage.Text = ConfigurationManager.AppSettings["DefaultMessage"];
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(270, 270);
+            this.btnStart.Location = new System.Drawing.Point(270, 540);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(100, 30);
             this.btnStart.TabIndex = 10;
@@ -138,14 +133,21 @@ namespace HoshForm
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // numTimeInterval
+            // 
+            this.numTimeInterval.Location = new System.Drawing.Point(186, 128);
+            this.numTimeInterval.Name = "numTimeInterval";
+            this.numTimeInterval.Size = new System.Drawing.Size(370, 23);
+            this.numTimeInterval.TabIndex = 7;
+            // 
             // HoshForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 341);
+            this.ClientSize = new System.Drawing.Size(624, 601);
+            this.Controls.Add(this.numTimeInterval);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tbMessage);
-            this.Controls.Add(this.tbTimeInterval);
             this.Controls.Add(this.tbHN);
             this.Controls.Add(this.tbTarget);
             this.Controls.Add(this.tbUrlBoard);
@@ -159,6 +161,7 @@ namespace HoshForm
             this.MinimizeBox = false;
             this.Name = "HoshForm";
             this.Text = "HoshForm";
+            ((System.ComponentModel.ISupportInitialize)(this.numTimeInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,9 +177,9 @@ namespace HoshForm
         private System.Windows.Forms.TextBox tbUrlBoard;
         private System.Windows.Forms.TextBox tbTarget;
         private System.Windows.Forms.TextBox tbHN;
-        private System.Windows.Forms.TextBox tbTimeInterval;
         private System.Windows.Forms.TextBox tbMessage;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.NumericUpDown numTimeInterval;
     }
 }
 
