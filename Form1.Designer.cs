@@ -88,7 +88,6 @@ namespace HoshForm
             this.lblMessage.Size = new System.Drawing.Size(89, 30);
             this.lblMessage.TabIndex = 4;
             this.lblMessage.Text = "本文\r\n改行で複数登録";
-            
             // 
             // tbUrlBoard
             // 
@@ -139,7 +138,9 @@ namespace HoshForm
             this.numTimeInterval.Name = "numTimeInterval";
             this.numTimeInterval.Size = new System.Drawing.Size(370, 23);
             this.numTimeInterval.TabIndex = 7;
-            this.numTimeInterval.Value = decimal.Parse(ConfigurationManager.AppSettings["DefaultTimeInterval"]);
+            this.numTimeInterval.Maximum = 10000;
+            this.numTimeInterval.Minimum = 10;
+            this.numTimeInterval.Value = decimal.Parse(ConfigurationManager.AppSettings["TimeInterval"]);
             // 
             // HoshForm
             // 
