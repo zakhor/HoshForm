@@ -69,6 +69,12 @@ namespace HoshForm
             //フォームを閉じる
             this.Close();
 
+            //ChromeDriver起動
+            options.AddArgument("--headless");
+            options.AddArgument("--incognito");
+            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), options);
+            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+
             //本文を切り分ける
             string[] Messages = Message.Split("\n");
 
@@ -156,11 +162,6 @@ namespace HoshForm
                         {
                             Console.WriteLine("POST");
                             TimeWait = TimeInterval;
-                            //ChromeDriver起動
-                            options.AddArgument("--headless");
-                            options.AddArgument("--incognito");
-                            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), options);
-                            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
                             driver.Url = UrlThread;
                             IWebElement Element = driver.FindElement(By.Name("FROM"));
                             Element.SendKeys(HN);
@@ -180,8 +181,6 @@ namespace HoshForm
                             catch (WebDriverTimeoutException)
                             {
                             }
-                            //ChromeDriver終了
-                            driver.Close();
                         }
                         //もし最終書込時刻が投稿間隔時間内にあれば超過予想時刻まで待機
                         else
