@@ -139,6 +139,7 @@ namespace HoshForm
             this.numTimeInterval.Name = "numTimeInterval";
             this.numTimeInterval.Size = new System.Drawing.Size(370, 23);
             this.numTimeInterval.TabIndex = 7;
+            this.numTimeInterval.Value = decimal.Parse(ConfigurationManager.AppSettings["DefaultTimeInterval"]);
             // 
             // HoshForm
             // 
