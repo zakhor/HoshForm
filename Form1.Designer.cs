@@ -140,7 +140,7 @@ namespace HoshForm
             this.numTimeInterval.TabIndex = 7;
             this.numTimeInterval.Maximum = 10000;
             this.numTimeInterval.Minimum = 10;
-            this.numTimeInterval.Value = decimal.Parse(ConfigurationManager.AppSettings["TimeInterval"]);
+            this.numTimeInterval.Value = decimal.Parse(ConfigurationManager.AppSettings["DefaultTimeInterval"]);
             // 
             // HoshForm
             // 
