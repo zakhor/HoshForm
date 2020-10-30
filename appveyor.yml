@@ -1,3 +1,16 @@
-version: 1.0.{build}
+version: 3.1.{build}
+image: Visual Studio 2019
 build:
   verbosity: minimal
+artifacts:
+- path: '\bin\Rlease\netcoreapp3.1\HoshForm.src'
+  name: Release
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
+  artifact: HoshForm
+  draft: false
+  force_update: false
+  on:
+    C:\Release\: ''
