@@ -1,4 +1,4 @@
-version: 3.1.{build}
+version: 3.1.2
 pull_requests:
   do_not_increment_build_number: true
 image: Visual Studio 2019
@@ -6,7 +6,7 @@ build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
-- path: '\bin\Debug\netcoreapp3.1\*'
+- path: '\bin\Debug\netcoreapp3.1\HoshForm.src'
   name: Release
 before_build:
 - cmd: nuget restore
@@ -20,4 +20,4 @@ deploy:
   draft: true
   force_update: true
   on:
-    C:\projects\hoshform\Release\: ''
+    C:\projects\hoshform\Debug\netcoreapp3.1: 'HoshForm.src'
