@@ -12,8 +12,8 @@ before_build:
 - cmd: nuget restore
 deploy:
 - provider: GitHub
-  tag: v3.1.{build}
-  release: HoshForm_v3.1.{build}
+  tag: v3.1.2
+  release: HoshForm_v3.1.2
   auth_token:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: HoshForm
