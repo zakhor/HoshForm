@@ -6,10 +6,8 @@ build:
 artifacts:
 - path: '\bin\Rlease\netcoreapp3.1\HoshForm.src'
   name: Release
-before_deploy:
-- cmd: >-
-    msbuild -t:restore
-    dotnet restore
+before_build:
+- cmd: nuget restore
 deploy:
 - provider: GitHub
   auth_token:
