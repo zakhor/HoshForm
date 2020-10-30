@@ -2,10 +2,11 @@ version: 3.1.{build}
 image: Visual Studio 2019
 build:
   verbosity: minimal
-  project: HoshForm.sln
 artifacts:
 - path: '\bin\Rlease\netcoreapp3.1\HoshForm.src'
   name: Release
+before_deploy:
+- cmd: nuget restore HoshForm.csproj
 deploy:
 - provider: GitHub
   auth_token:
