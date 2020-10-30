@@ -6,7 +6,7 @@ build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
-- path: '\bin\Rlease\netcoreapp3.1\*'
+- path: 'C:\projects\hoshform\Release\*'
   name: Release
 before_build:
 - cmd: nuget restore
@@ -20,4 +20,4 @@ deploy:
   draft: true
   force_update: true
   on:
-    C:\projects\hoshform\Release: ''
+    C:\projects\hoshform\Release\: ''
