@@ -4,12 +4,14 @@ build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
-- path: '\bin\Rlease\netcoreapp3.1\'
+- path: '\bin\Rlease\netcoreapp3.1\*'
   name: Release
 before_build:
 - cmd: nuget restore
 deploy:
 - provider: GitHub
+  tag: v3.1.{build}
+  release: HoshForm_v3.1.{build}
   auth_token:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: HoshForm
