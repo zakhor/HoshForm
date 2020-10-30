@@ -5,7 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>3.0.0</Version>
+    <PreserveCompilationContext>false</PreserveCompilationContext>
+    <Version>3.1.1</Version>
     <Authors>Zakhor</Authors>
     <Company />
   </PropertyGroup>
