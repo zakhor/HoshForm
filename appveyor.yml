@@ -8,11 +8,11 @@ before_build:
 - cmd: nuget restore
 build:
   project: HoshForm.sln
+  publish_nuget: true
   verbosity: minimal
 artifacts:
 - path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.exe
-  publish_nuget: true
 deploy:
 - provider: GitHub
   tag: v3.1.2
