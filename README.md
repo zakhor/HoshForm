@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/7epw5ywgwjglvgbt?svg=true)](https://ci.appveyor.com/project/zakhor/hoshform)
 # HoshForm
 ## すること
 5chの特定板を巡回しスレタイに任意の文字列を含むスレを検索し保守する  
