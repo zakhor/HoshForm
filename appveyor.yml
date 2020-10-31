@@ -1,20 +1,18 @@
 version: 3.1.{build}
 configuration: release
-clone_folder: c:\projects\hoshform
-pull_requests:
-  do_not_increment_build_number: true
+skip_non_tags: true
 image: Visual Studio 2019
 before_build:
 - cmd: nuget restore
 build:
-  project: HoshForm.sln
   verbosity: minimal
+  project: HoshForm.sln
 artifacts:
 - path: '\bin\Release\netcoreapp3.1\*'
 deploy:
 - provider: GitHub
-  tag: v3.1.2
-  release: HoshForm_v3.1.2
+  tag: v3.1.$(appveyor-build-version)
+  release: HoshForm_v$(appveyor-build-version)
   auth_token:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: /.*/
