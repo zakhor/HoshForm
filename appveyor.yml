@@ -10,8 +10,7 @@ build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
-- path: '\bin\Release\netcoreapp3.1\'
-  name: *
+- path: '\bin\Release\netcoreapp3.1\*'
 deploy:
 - provider: GitHub
   tag: v3.1.2
