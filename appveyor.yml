@@ -21,6 +21,6 @@ deploy:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: HoshForm
   prerelease: true
-  force_update: false
+  force_update: true
   on:
     branch: master 
