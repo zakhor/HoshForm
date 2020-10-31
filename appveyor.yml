@@ -20,8 +20,7 @@ deploy:
   auth_token:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: HoshForm
-  draft: true
   prerelease: true
   force_update: false
   on:
-   appveyor_repo_tag: true
+    branch: master 
