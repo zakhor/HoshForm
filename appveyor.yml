@@ -6,13 +6,13 @@ pull_requests:
 image: Visual Studio 2019
 before_build:
 - cmd: nuget restore
-publish_nuget: true
 build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
 - path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.exe
+  publish_nuget: true
 deploy:
 - provider: GitHub
   tag: v3.1.2
@@ -21,6 +21,7 @@ deploy:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
   artifact: HoshForm
   draft: true
-  force_update: true
+  prerelease: true
+  force_update: false
   on:
-    C:\projects\hoshform\Release\netcoreapp3.1: ''
+   appveyor_repo_tag: true
