@@ -6,19 +6,13 @@ pull_requests:
 image: Visual Studio 2019
 before_build:
 - cmd: nuget restore
+publish_nuget: true
 build:
   project: HoshForm.sln
   verbosity: minimal
 artifacts:
 - path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.exe
-  name: HoshForm.dll
-  name: HoshForm.dll.config
-  name: HoshForm.runetimeconfig.json
-  name: Newtonsoft.Json
-  name: SeleniumExtras.WaitHelpers.dll
-  name: Webdriver.dll
-  name: WebDriver.Support.dll
 deploy:
 - provider: GitHub
   tag: v3.1.2
@@ -29,4 +23,4 @@ deploy:
   draft: true
   force_update: true
   on:
-    C:\projects\hoshform\Debug\netcoreapp3.1: ''
+    C:\projects\hoshform\Release\netcoreapp3.1: ''
