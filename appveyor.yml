@@ -12,19 +12,12 @@ build:
 artifacts:
 - path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.exe
-- path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.dll
-- path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.dll.config
-- path: '\bin\Release\netcoreapp3.1\'
   name: HoshForm.runetimeconfig.json
-- path: '\bin\Release\netcoreapp3.1\'
   name: Newtonsoft.Json
-- path: '\bin\Release\netcoreapp3.1\'
   name: SeleniumExtras.WaitHelpers.dll
-- path: '\bin\Release\netcoreapp3.1\'
   name: Webdriver.dll
-- path: '\bin\Release\netcoreapp3.1\'
   name: WebDriver.Support.dll
 deploy:
 - provider: GitHub
