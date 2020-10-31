@@ -17,7 +17,7 @@ deploy:
   release: HoshForm_v3.1.2
   auth_token:
     secure: dsahD8lNZdxUJMNtbDkrezhJ3SPCfxwMyaGhYvix3bm+ktKZJgVGFp+N7i7haLvj
-  artifact: /.*\.zip/
+  artifact: /.*\/
   draft: true
   prerelease: true
   force_update: true
